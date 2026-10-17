@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cloudguard-system
+  labels:
+    app.kubernetes.io/name: cloudguard-analyzer
+    app.kubernetes.io/part-of: devsecops-platform
+    security.kubernetes.io/enforce: restricted

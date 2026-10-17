@@ -1,0 +1,98 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLEUSER1",
+        "arn": "arn:aws:iam::123456789012:user/alice.sre",
+        "accountId": "123456789012",
+        "userName": "alice.sre"
+      },
+      "eventTime": "2026-10-16T14:20:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "DescribeInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "140.82.112.4",
+      "userAgent": "aws-cli/2.15.0",
+      "requestParameters": null,
+      "responseElements": null
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLEUSER2",
+        "arn": "arn:aws:iam::123456789012:user/compromised.admin",
+        "accountId": "123456789012",
+        "userName": "compromised.admin"
+      },
+      "eventTime": "2026-10-16T18:15:00Z",
+      "eventSource": "signin.amazonaws.com",
+      "eventName": "ConsoleLogin",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "194.26.29.112",
+      "userAgent": "Mozilla/5.0",
+      "responseElements": {
+        "ConsoleLogin": "Success"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLEUSER2",
+        "arn": "arn:aws:iam::123456789012:user/compromised.admin",
+        "accountId": "123456789012",
+        "userName": "compromised.admin"
+      },
+      "eventTime": "2026-10-16T18:17:00Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "CreateAccessKey",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "194.26.29.112",
+      "userAgent": "aws-cli/2.15.0",
+      "requestParameters": {
+        "userName": "compromised.admin"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLEUSER2",
+        "arn": "arn:aws:iam::123456789012:user/compromised.admin",
+        "accountId": "123456789012",
+        "userName": "compromised.admin"
+      },
+      "eventTime": "2026-10-16T18:20:00Z",
+      "eventSource": "iam.amazonaws.com",
+      "eventName": "AttachUserPolicy",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "194.26.29.112",
+      "userAgent": "aws-cli/2.15.0",
+      "requestParameters": {
+        "policyArn": "arn:aws:iam::aws:policy/AdministratorAccess",
+        "userName": "compromised.admin"
+      }
+    },
+    {
+      "eventVersion": "1.08",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLEUSER2",
+        "arn": "arn:aws:iam::123456789012:user/compromised.admin",
+        "accountId": "123456789012",
+        "userName": "compromised.admin"
+      },
+      "eventTime": "2026-10-16T18:22:00Z",
+      "eventSource": "cloudtrail.amazonaws.com",
+      "eventName": "StopLogging",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "194.26.29.112",
+      "userAgent": "aws-cli/2.15.0",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User is not authorized to perform: cloudtrail:StopLogging"
+    }
+  ]
+}

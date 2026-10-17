@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: cloudguard-netpol
+  namespace: cloudguard-system
+  labels:
+    app.kubernetes.io/name: cloudguard-analyzer
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: cloudguard-analyzer
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    # Allow traffic from ingress controllers and internal cluster clients on Streamlit port
+    - ports:
+        - protocol: TCP
+          port: 8501
+  egress:
+    # Allow DNS queries
+    - to:
+        - namespaceSelector: {}
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+    # Allow outbound HTTPS for cloud audit log APIs
+    - ports:
+        - protocol: TCP
+          port: 443

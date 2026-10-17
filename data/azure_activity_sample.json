@@ -1,0 +1,26 @@
+[
+  {
+    "eventTimestamp": "2026-10-16T15:00:00Z",
+    "operationName": {
+      "value": "Microsoft.Compute/virtualMachines/read",
+      "localizedValue": "Read Virtual Machines"
+    },
+    "status": {
+      "value": "Succeeded"
+    },
+    "caller": "devops-admin@contoso.com",
+    "callerIpAddress": "51.140.88.2"
+  },
+  {
+    "eventTimestamp": "2026-10-16T19:30:00Z",
+    "operationName": {
+      "value": "Microsoft.Authorization/roleAssignments/write",
+      "localizedValue": "Create role assignment"
+    },
+    "status": {
+      "value": "Succeeded"
+    },
+    "caller": "sp-deployer-app",
+    "callerIpAddress": "175.45.176.8"
+  }
+]
